@@ -1794,25 +1794,24 @@
       }
     }
 
-    /* Common breakpoints */
-@media (max-width: 1200px) {
-  /* Adjustments for large screens */
+    /* Desktop */
+@media (min-width: 1200px) {
+  /* Desktop-specific styles */
 }
 
+/* Tablet */
 @media (max-width: 992px) {
-  /* Adjustments for medium screens */
+  /* Tablet-specific styles */
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  /* Adjustments for tablets */
+  /* Mobile-specific styles */
 }
 
-@media (max-width: 600px) {
-  /* Adjustments for mobile devices */
-}
-
+/* Small Mobile */
 @media (max-width: 480px) {
-  /* Adjustments for small mobile devices */
+  /* Small mobile-specific styles */
 }
 
 .navbar {
@@ -2078,4 +2077,125 @@ body {
 /* When menu is active, prevent body from scrolling */
 body.active {
   overflow: hidden;
+}
+
+/* Mobile Navbar */
+.navbar {
+  padding: 1rem;
+}
+
+.navbar .logo {
+  font-size: 1.2rem;
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: block;
+  }
+}
+
+/* Mobile Hero */
+.hero .overlay {
+  padding: 1.5rem;
+  width: 95%;
+}
+
+.overlay h1 {
+  font-size: 1.8rem;
+}
+
+.overlay h2 {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 80vh;
+  }
+  
+  .overlay {
+    padding: 1rem;
+  }
+}
+
+/* Mobile Grid */
+.cards {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+
+/* Maintain card quality on mobile */
+.card img {
+  height: 200px;
+}
+
+/* Mobile-friendly buttons */
+.btn {
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-input {
+  padding: 0.8rem;
+}
+
+/* Adjust search button on mobile */
+.search-btn {
+  padding: 0 1rem;
+}
+
+/* Mobile-friendly buttons */
+.btn {
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-input {
+  padding: 0.8rem;
+}
+
+/* Adjust search button on mobile */
+.search-btn {
+  padding: 0 1rem;
+}
+
+/* Ensure buttons are touch-friendly */
+button, .search-btn {
+  min-width: 120px;
+  min-height: 40px;
+}
+
+/* Prevent text scaling */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Responsive images */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery img {
+  height: 180px;
+  object-fit: cover;
 }
