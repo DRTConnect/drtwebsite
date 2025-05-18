@@ -24,6 +24,27 @@
     </div>
   </header>
 
+  <nav class="navbar">
+  <div class="logo">DRTConnect</div>
+  <button class="hamburger-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="actions">
+    <button class="login">Login</button>
+    <button class="signup">Sign Up</button>
+  </div>
+</nav>
+
   <!-- Hero & Carousel -->
  <section class="hero">
     <div class="slides">
@@ -603,6 +624,25 @@ filterBtn.addEventListener('click', () => {
   }
 });
     
+    // In your JavaScript file
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburgerMenu.addEventListener('click', () => {
+  hamburgerMenu.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+
+// Add this to your JavaScript file
+document.addEventListener('click', function(event) {
+  const nav = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger-menu');
+  
+  if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
     
   </script>
 </body>
