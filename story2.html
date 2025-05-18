@@ -418,26 +418,217 @@
         gap: 1rem;
       }
     }
+
+    /* Mobile Menu Styles */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1000;
+  color: var(--text);
+}
+
+.close-icon {
+  display: none;
+}
+
+
+.hamburger {
+  width: 25px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before { top: -6px; }
+.hamburger::after { top: 6px; }
+
+.navbar.active .hamburger {
+  background: transparent;
+}
+
+.navbar.active .hamburger-icon {
+  display: none;
+}
+
+.navbar.active .close-icon {
+  display: block;
+}
+
+.navbar.active .hamburger::before {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navbar.active .hamburger::after {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  div.form-group form.search-form button.search-btn {
+    width: 50px;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hamburger-icon,
+  .close-icon {
+    transition: transform 0.3s ease;
+  }
+
+   .mobile-menu-btn:hover .hamburger-icon {
+    transform: scale(1.1);
+  }
+  
+  .mobile-menu-btn:active .close-icon {
+    transform: scale(0.9);
+  }
+
+
+   .navbar ul {
+    margin-top: 20px;
+    order: 2;
+    flex-direction: column;
+    gap: 1;
+    width: 100%;
+    font-size: 10px;
+  }
+
+  .navbar ul a {
+    font-size: 16px;
+  }
+
+ .navbar .actions {
+    display: none;
+    order: 3;
+    width: 100%;
+    margin-top: 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(182,167,110,0.1);
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar.active ul,
+  .navbar.active .actions {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .navbar .actions button {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+   @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+
+   .navbar ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(182,167,110,0.1);
+  }
+
+  .navbar ul li a {
+    padding: 1rem;
+  }
+
+  .navbar .actions {
+    order: 4;
+    margin-top: 0.2rem;
+  }
+
+  .navbar .actions button {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+
+  .logo {
+    order: 1;
+    flex-grow: 1;
+  }
+
+  .mobile-menu-btn {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .logo {
+    font-size: 1.25rem;
+  }
+
+  .hero .overlay {
+    padding: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .sub-title {
+    font-size: 1.1rem;
+  }
+}
+
+  html,body{
+    overflow-x: hidden;
+}
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">DRTConnect</div>
-    <ul>
-      <li><a href="index.html">Explore</a></li>
-      <li><a href="why.html">Why DRT?</a></li>
-      <li><a href="story.html">Local Stories</a></li>
-      <li><a href="progress.html">Tourism Progress</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-    <div class="actions">
-      <button class="login">Login</button>
-      <button class="signup">Sign Up</button>
-    </div>
-  </header>
+ <header class="navbar">
+  <div class="logo">DRTConnect</div>
+
+  <ul>
+    <li><a href="index.html">Explore</a></li>
+    <li><a href="why.html">Why DRT?</a></li>
+    <li><a href="story.html">Local Stories</a></li>
+    <li><a href="progress.html">Tourism Progress</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+
+  <div class="actions">
+    <button class="login">Login</button>
+    <button class="signup">Sign Up</button>
+  </div>
+
+  <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+    <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+    <svg class="close-icon" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </svg>
+  </button>
+</header>
 
   <!-- Story Container -->
   <main>
@@ -542,5 +733,29 @@
     </nav>
     <p>© 2025 DRTConnect.com. All rights reserved.</p>
   </footer>
+
+  <script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navbar = document.querySelector('.navbar');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && navbar.classList.contains('active')) {
+      navbar.classList.remove('active');
+    }
+  });
+
+  // Close menu on scroll
+  window.addEventListener('scroll', () => {
+    if (navbar.classList.contains('active')) {
+      navbar.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
