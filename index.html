@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>DRTConnect</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero & Carousel -->
+ <section class="hero">
+    <div class="slides">
+      <img src="images/Secret Falls/3.jpg" class="active" alt="Slide 1" />
+      <img src="images/Secret Falls/1.jpeg" alt="Slide 2" />
+      <img src="images/Verdivia Falls/1.jpg" alt="Slide 3" />
+    </div>
+    <div class="overlay">
+      <div class="hero-titles">
+        <h1 class="main-title">Welcome and Breathe in DRT</h1>
+        <h2 class="sub-title">Explore Doña Remedios Trinidad</h2>
+      </div>
+      <div class="form-group">
+        <form class="search-form" action="#" method="get">
+          <input
+            type="search"
+            name="q"
+            class="search-input"
+            placeholder="Search destinations..."
+            aria-label="Search destinations"
+          />
+          <button type="submit" class="search-btn">🔍</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+ <!-- Recommended Destinations -->
+<section class="recommended" id="destinations">
+  <h2>Discover DRT's Natural Wonders</h2>
+  <!-- Change the button section to this -->
+<div class="filter-container">
+  <button class="filter-btn">
+    <span class="filter-text">Suggested for this Season/Month</span>
+    <span class="filter-icon">✓</span>
+    <span class="filter-close">×</span>
+  </button>
+</div>
+  <div class="cards">
+    <!-- First row -->
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Verdivia Falls/1.jpg" alt="Verdivia Falls">
+        <div class="info">
+          <h3>Verdivia Falls</h3>
+          <div class="location">Talbak, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location2.html" class="card">
+        <img src="images//13 Falls/1_13.jpg" alt="13 Falls">
+        <div class="info">
+          <h3>13 Falls</h3>
+          <div class="location">Camachin, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location3.html" class="card">
+        <img src="images/Secret Falls/2.jpeg" alt="Secret Falls Resort">
+        <div class="info">
+          <h3>Secret Falls Resort</h3>
+          <div class="location">Camachile, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+
+    <!-- Second row -->
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(4) INFINITY FALLS.jpg" alt="Infinity Falls">
+        <div class="info">
+          <h3>Infinity Falls</h3>
+          <div class="location">Sapang Bulac, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(5) HIDDEN TWIN FALLS.jpg" alt="Hidden Twin Falls">
+        <div class="info">
+          <h3>Hidden Twin Falls</h3>
+          <div class="location">Camachin, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(6) EVA FALLS.jpg" alt="Eva Falls">
+        <div class="info">
+          <h3>Eva Falls</h3>
+          <div class="location">Kabayunan, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+
+    <!-- Third row -->
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(7) Daang Gerilya.jpg" alt="Daang Gerilya Falls">
+        <div class="info">
+          <h3>Daang Gerilya Falls</h3>
+          <div class="location">Puning, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(8) TUMUTULO FALLS.jpeg" alt="Tumutulo Falls">
+        <div class="info">
+          <h3>Tumutulo Falls</h3>
+          <div class="location">Sapang Bulac, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="location1.html" class="card">
+        <img src="images/Other Location/(9) VIRGIN FALLS.jpg" alt="Virgin Falls">
+        <div class="info">
+          <h3>Virgin Falls</h3>
+          <div class="location">Tibagan, DRT</div>
+          
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <button class="show-more">Show More</button>
+
+  <!-- Add this after the Show More button in the recommended section -->
+<div class="offline-help">
+  <p>Need help offline?<br>Seek help from our DRT Local Guides!<br>Download the pdf below and access</p>
+  <a href="download/Contact and Connect.pdf" class="pdf-download" download aria-label="Download DRT Local Guides PDF">
+    <span>Download</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+  </a>
+</div>
+</section>
+
+<!-- Add this modal structure before the footer -->
+<div class="modal" id="locationsModal">
+  <div class="modal-content-index">
+    <button class="close-btn">&times;</button>
+    <h2>All Locations</h2>
+    <div class="cards modal-cards">
+        <!-- Existing 9 locations -->
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Verdivia Falls/2.jpg" alt="Verdivia Falls">
+            <div class="info">
+              <h3>Verdivia Falls</h3>
+              <div class="location">Talbak, DRT</div>
+            </div>
+          </a>
+        </div>
+        <!-- Other existing 8 cards -->
+        <div class="card">
+          <a href="location2.html" class="card">
+            <img src="images/13 Falls/2_13.jpg" alt="13 Falls">
+            <div class="info">
+              <h3>13 Falls</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location3.html" class="card">
+            <img src="images/Secret Falls/3.jpg" alt="Secret Falls Resort ">
+            <div class="info">
+              <h3>Secret Falls Resort </h3>
+              <div class="location">Camachile, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(4) INFINITY FALLS.jpg" alt="Infinity Falls">
+            <div class="info">
+              <h3>Infinity Falls</h3>
+              <div class="location">Sapang Bulac, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(5) HIDDEN TWIN FALLS.jpg" alt="Hidden Twin Falls">
+            <div class="info">
+              <h3>Hidden Twin Falls</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(6) EVA FALLS.jpg" alt="Eva Falls">
+            <div class="info">
+              <h3>Eva Falls</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(7) Daang Gerilya.jpg" alt="Daang Gerilya Falls">
+            <div class="info">
+              <h3>Daang Gerilya Falls</h3>
+              <div class="location">Sapang Bulac, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(8) TUMUTULO FALLS.jpeg" alt="Tumutulo Falls">
+            <div class="info">
+              <h3>Tumutulo Falls</h3>
+              <div class="location">Bayabas, DRT</div>
+            </div>
+          </a>
+        </div>
+        <!-- New locations 10-33 -->
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(9) VIRGIN FALLS.jpg" alt="Virgin Falls">
+            <div class="info">
+              <h3>Virgin Falls</h3>
+              <div class="location">Kabayunan, DRT</div>
+            </div>
+          </a>
+        </div>
+      <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(10) MT.MANALMON.jpg" alt="Mt. Manalmon">
+            <div class="info">
+              <h3>Mt. Manalmon</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+      <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(11) MT.SUMACBAO.jpg" alt="Mt. Sumacbao">
+            <div class="info">
+              <h3>Mt. Sumacbao</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(12) MT.PINAGBANDERAHAN.jpg" alt="Mt. Pinagbanderahan">
+            <div class="info">
+              <h3>Mt. Pinagbanderahan</h3>
+              <div class="location">Bayabas, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(13) MT. LUMOT.jpg" alt="Mt. Lumot">
+            <div class="info">
+              <h3>Mt. Lumot</h3>
+              <div class="location">Sapang Bulak, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(14) DIGO_S HILL.jpeg" alt="Digo's Hills">
+            <div class="info">
+              <h3>Digo's Hills</h3>
+              <div class="location">Kabayunan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(15) TILA PILON HILLS.jpg" alt="Tila Pilon Hills">
+            <div class="info">
+              <h3>Tila Pilon Hills</h3>
+              <div class="location">Talbak Sitio, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(16) ZAMORA FALLS.jpg" alt="Zamora Falls">
+            <div class="info">
+              <h3>Zamora Falls</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(17) PUNING CAVE.jpg" alt="Puning Cave">
+            <div class="info">
+              <h3>Puning Cave</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(18) Adarna.jpg" alt="Adarna Falls">
+            <div class="info">
+              <h3>Adarna Falls</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(19) Sampalok Bayabas.jpg" alt="Sampaloc Bayabas Cave">
+            <div class="info">
+              <h3>Sampaloc Bayabas Cave</h3>
+              <div class="location">Bayabas, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(20) Avalon Eco.jpg" alt="Avalon Ecofarm & Nature Reserve">
+            <div class="info">
+              <h3>Avalon Ecofarm & Nature Reserve</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(21) Tumana.jpg" alt="Tumana Campsite">
+            <div class="info">
+              <h3>Tumana Campsite</h3>
+              <div class="location">Camachile, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(22) Candle Monument.jpg" alt="Candle Monument Trail">
+            <div class="info">
+              <h3>Candle Monument Trail</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(23) Batong Palaka.jpg" alt="Batong Palaka">
+            <div class="info">
+              <h3>Batong Palaka</h3>
+              <div class="location">Bayabas, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(24) Sitio Abo.jpg" alt="Sitio Abo River">
+            <div class="info">
+              <h3>Sitio Abo River</h3>
+              <div class="location">Camachin, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(25) Bayabas Eco.jpg" alt="Bayabas River & Dam">
+            <div class="info">
+              <h3>Bayabas River & Dam</h3>
+              <div class="location">Bayabas, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(26) Hanging Bridge.jpg" alt="DRT Hanging Bridge Viewpoint">
+            <div class="info">
+              <h3>DRT Hanging Bridge Viewpoint</h3>
+              <div class="location">Talbak, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(27) Shrine of Piat.jpg" alt="Shrine of Our Lady of Piat">
+            <div class="info">
+              <h3>Shrine of Our Lady of Piat</h3>
+              <div class="location">Talbak, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(28) Dumagat.jpg" alt="Dumagat Community">
+            <div class="info">
+              <h3>Dumagat Community</h3>
+              <div class="location">Kalawakan, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(29) Talon Pari.jpg" alt="Talon Pari Falls">
+            <div class="info">
+              <h3>Talon Pari Falls</h3>
+              <div class="location">Camachile, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(30) Mandala.jpg" alt="Mandala Falls (Antonio's Nature Park)">
+            <div class="info">
+              <h3>Mandala Falls (Antonio's Nature Park)</h3>
+              <div class="location">Camachile, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(31) Angeland.jpg" alt="Angeland Kareta Falls">
+            <div class="info">
+              <h3>Angeland Kareta Falls</h3>
+              <div class="location">Camachile, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(32) Talon ni Eva.jpeg" alt="Talon ni Eva">
+            <div class="info">
+              <h3>Talon ni Eva</h3>
+              <div class="location">Talbak, DRT</div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="location1.html" class="card">
+            <img src="images/Other Location/(33) Talon Lawa.jpg" alt="Pinagpanaan Falls">
+            <div class="info">
+              <h3>Talon Lawa</h3>
+              <div class="location">Pulong Sampaloc, DRT</div>
+            </div>
+          </a>
+        </div>
+      <!-- Repeat for all other locations with appropriate images -->
+    </div>
+  </div>
+</div>
+  
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Carousel Logic
+    const slides = document.querySelectorAll('.slides img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    // Modal functionality
+    const showMoreBtn = document.querySelector('.show-more');
+    const modal = document.getElementById('locationsModal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    showMoreBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+
+
+// Weather-based filtering
+const filterBtn = document.querySelector('.filter-btn');
+const cardsContainer = document.querySelector('.cards');
+let isFiltered = false;
+
+// Add data-attribute to each card with its best season
+document.querySelectorAll('.card').forEach(card => {
+  const location = card.querySelector('h3').textContent;
+  // Add your own logic to determine the best season for each location
+  // For example:
+  switch(location) {
+    case 'Verdivia Falls':
+    case '13 Falls':
+    case 'Infinity Falls':
+      card.dataset.season = 'wet';
+      break;
+    case 'Hidden Twin Falls':
+    case 'Eva Falls':
+    case 'Daang Gerilya Falls':
+      card.dataset.season = 'dry';
+      break;
+    case 'Tumutulo Falls':
+    case 'Virgin Falls':
+    case 'Secret Falls Resort':
+      card.dataset.season = 'summer';
+      break;
+    default:
+      card.dataset.season = 'all';
+  }
+});
+
+filterBtn.addEventListener('click', () => {
+  const currentMonth = new Date().getMonth();
+  const isSummer = [4, 5, 6].includes(currentMonth); // May, June, July
+  const isWetSeason = [7, 8, 9, 10].includes(currentMonth);
+  const isDrySeason = [11, 0, 1, 2, 3].includes(currentMonth);
+
+  if (!isFiltered) {
+    // Show only locations suitable for current season
+    cardsContainer.classList.add('sorting');
+    
+    document.querySelectorAll('.card').forEach(card => {
+      const season = card.dataset.season;
+      if (isSummer && season === 'summer') {
+        card.style.display = 'block';
+      } else if (isWetSeason && season === 'wet') {
+        card.style.display = 'block';
+      } else if (isDrySeason && season === 'dry') {
+        card.style.display = 'block';
+      } else if (season === 'all') {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+        card.classList.add('hidden');
+      }
+    });
+    
+    filterBtn.classList.add('active');
+    isFiltered = true;
+  } else {
+    // Reset to show all locations
+    cardsContainer.classList.remove('sorting');
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.display = 'block';
+      card.classList.remove('hidden');
+    });
+    filterBtn.classList.remove('active');
+    isFiltered = false;
+  }
+});
+    
+    
+  </script>
+</body>
+</html>

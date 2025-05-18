@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRTConnect - Local Stories</title>
+  <style>
+    /* Variables */
+    :root {
+      --mist-blue:    #BDD8DD;
+      --earth-gold:   #B6A76E;
+      --olive-moss:   #756B3B;
+      --forest-shade: #3C3E2C;
+      --text:         var(--forest-shade);
+      --muted-text:   #64748b;
+      --light-text:   #f8fafc;
+      --light-muted:  #cbd5e1;
+      --bg:           #fafafa;
+      --card-bg:      #ffffff;
+      --surface:      rgba(255,255,255,0.95);
+      --shadow-sm:    0 2px 5px rgba(0,0,0,0.05);
+      --shadow-md:    0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg:    0 10px 25px rgba(0,0,0,0.1);
+      --gold-gradient: linear-gradient(135deg, var(--earth-gold), var(--olive-moss));
+      --forest-gradient: linear-gradient(to right, var(--olive-moss), var(--forest-shade));
+    }
+
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); line-height:1.6; }
+    a { text-decoration: none; }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: var(--bg);
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: var(--earth-gold);
+    }
+
+    .navbar ul li a:hover:after {
+      width: 100%;
+    }
+
+    .navbar .actions button {
+      margin-left: 0.75rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .login {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #e2e8f0;
+    }
+
+    .navbar .login:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .navbar .signup {
+      background: var(--gold-gradient);
+      color: var(--light-text);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar .signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(117,107,59,0.2);
+    }
+
+    /* Page header */
+    .page-header {
+      padding: 10rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--mist-blue) 100%);
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--forest-shade);
+    }
+
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--muted-text);
+    }
+
+    /* Story cards */
+    .stories-container {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-category {
+      margin-bottom: 3rem;
+    }
+
+    .story-category h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--forest-shade);
+      position: relative;
+      display: inline-block;
+    }
+
+    .story-category h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .story-card { background: var(--card-bg); border-radius:12px; box-shadow:var(--shadow-md); cursor:pointer; overflow:hidden; transition:0.3s; }
+    .story-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .story-image { width:100%; height:200px; object-fit:cover; }
+    .story-content { padding:1.5rem; }
+
+    .story-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--forest-shade);
+    }
+
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted-text);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .story-excerpt {
+      color: var(--text);
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .read-more {
+      color: var(--earth-gold);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .read-more svg {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: var(--olive-moss);
+    }
+
+    .read-more:hover svg {
+      transform: translateX(3px);
+    }
+
+   /* ==========================
+   Footer
+   ========================== */
+footer {
+  background: var(--forest-gradient);
+  color: var(--light-muted);
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold-gradient);
+}
+
+footer .social {
+  margin-bottom: 2rem;
+}
+
+footer .social a img {
+  height: 40px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  filter: brightness(1) invert(1);
+}
+
+footer .social a:hover {
+  transform: translateY(-5px);
+}
+
+footer .social a:hover img {
+  opacity: 1;
+}
+
+footer nav a {
+  margin: 0 1rem;
+  color: var(--light-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: var(--earth-gold);
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================
+   Responsive Tweaks
+   ========================== */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    gap: 1.5rem;
+  }
+  .navbar .actions button {
+    padding: 0.5rem 1rem;
+  }
+  .overlay {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar ul {
+    display: none;
+  }
+  .hero {
+    height: 90vh;
+  }
+  .overlay h1 {
+    font-size: 1.75rem;
+  }
+}   
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+      .page-header h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-header {
+        height: 250px;
+      }
+      .modal-header h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .modal-header-content {
+        padding: 1.5rem;
+      }
+      .modal-body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Kwentong DRT: Life, Culture & Community</h1>
+    <p>Discover the rich culture, vibrant community, and untold stories of Doña Remedios Trinidad through the eyes of locals and visitors alike.</p>
+  </section>
+
+  <!-- Stories Container -->
+  <div class="stories-container">
+    <!-- Community Stories -->
+    <div class="story-category">
+      <h2>Community Stories</h2>
+      <div class="story-grid">
+        <!-- Story Card 1 -->
+        <div class="story-card" data-story-id="story1">
+          <img src="images/LOCAL STORIES page/Dumagat.jpg" alt="Dumagat Village" class="story-image">
+          <div class="story-content">
+            <h3>Dumagat Tribe: Proud Culture Bearers and DOT-Accredited Tourism Partners of DRT</h3>
+            <div class="story-meta">
+              <span> DOT Official Facebook - 50th Anniversary Post</span>
+              <span>2023</span>
+            </div>
+            <p class="story-excerpt">Deep within the Sierra Madre mountain range, in the verdant heart of Doña Remedios Trinidad (DRT), lives one of the Philippines' most resilient and nature-connected indigenous communities—the Dumagat Tribe....</p>
+            <a href="story1.html" class="read-more">
+              Read Full Story
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Story Card 2 -->
+        <div class="story-card" data-story-id="story2">
+          <img src="images/LOCAL STORIES page/kalawakan.jpg" alt="Local Farmers" class="story-image">
+          <div class="story-content">
+            <h3>Kalawakan: The Unexplored Universe of Nature and its People</h3>
+            <div class="story-meta">
+              <span>By Ms. Rinzen Gonzales</span>
+              <span>2021</span>
+            </div>
+            <p class="story-excerpt">Nestled in the lush folds of the Sierra Madre, Barangay Kalawakan in Doña Remedios Trinidad (DRT), Bulacan, is one of the most isolated yet awe-inspiring areas in the province....</p>
+            <a href="story2.html" class="read-more">
+              Read Full Story
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        </div>
+  </div>
+  </div>
+
+            <!-- Footer -->
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  </body>
+</html>

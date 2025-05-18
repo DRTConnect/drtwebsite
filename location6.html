@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>DRTConnect - Avalon Eco-farm and Resort</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="location-hero">
+    <img src="images/avalon-large.jpg" alt="Avalon Eco-farm and Resort">
+    <div class="location-title">
+      <h1>Avalon Eco-farm and Resort</h1>
+      <p>Camachin, Doña Remedios Trinidad, Bulacan</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="description">
+        <h2>About The Eco-Farm</h2>
+        <p>Spread across 12 hectares of sustainable landscape, Avalon Eco-farm and Resort combines agricultural tourism with leisure facilities. Established in 2010, this family-owned property features organic farms, freshwater pools, and rustic accommodations powered entirely by renewable energy.</p>
+        <p>The resort's main attraction is its integrated farming system showcasing organic vegetable terraces, free-range poultry, and a tilapia hatchery. Guests can enjoy farm-to-table dining with ingredients harvested just hours before preparation.</p>
+        <p>Named after the mythical island of Avalon, the resort emphasizes environmental stewardship with zero-waste policies and nature-based recreational activities.</p>
+      </div>
+
+      <h2 style="margin-bottom: 1rem;">Gallery</h2>
+      <div class="gallery">
+        <img src="images/avalon-1.jpg" alt="Organic Farm">
+        <img src="images/avalon-2.jpg" alt="Treehouse Accommodations">
+        <img src="images/avalon-3.jpg" alt="Infinity Pool">
+        <img src="images/avalon-4.jpg" alt="Farm Animals">
+        <img src="images/avalon-5.jpg" alt="Dining Area">
+        <img src="images/avalon-6.jpg" alt="Sunset View">
+      </div>
+
+      <div class="activities">
+        <h2>Things to Do</h2>
+        <ul>
+          <li><strong>Farm Immersion:</strong> Hands-on organic farming workshops</li>
+          <li><strong>Animal Interaction:</strong> Feed goats, chickens, and carabaos</li>
+          <li><strong>Bamboo Rafting:</strong> Leisurely rides through irrigation canals</li>
+          <li><strong>Solar Cooking:</strong> Learn sustainable cooking methods</li>
+          <li><strong>Stargazing:</strong> Night sky observation with telescopes</li>
+          <li><strong>Wellness:</strong> Yoga sessions in open-air pavilions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="booking-card">
+        <div class="price">
+          ₱200.00 <span>per person</span>
+        </div>
+        <p>Open 24/7 with day tour packages</p>
+        <button class="book-btn" id="openBooking">Book Stay</button>
+      </div>
+
+      <div class="info-box">
+        <h3>Essential Information</h3>
+        <div class="info-item">
+          <div class="icon">⏱️</div>
+          <div class="text">
+            <h4>Duration</h4>
+            <p>Recommended 1-2 day stay</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">👪</div>
+          <div class="text">
+            <h4>Good For</h4>
+            <p>Families, Educational trips, Retreats</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🚗</div>
+          <div class="text">
+            <h4>Getting There</h4>
+            <p>40 minutes from DRT town proper</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <h4>Rating</h4>
+            <p>4.7/5 (143 reviews)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15400.921042898382!2d121.052301375352!3d15.05384514996401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397053b5e2f5f2d%3A0xdd9b9d12a1a0b3a0!2sKabayunan%2C%20Do%C3%B1a%20Remedios%20Trinidad%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1715728234564!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">✕</button>
+      <div class="booking-form">
+        <h2>Book Your Eco-Stay</h2>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" required>
+            </div>
+            <div class="form-group">
+              <label for="visitors">Number of Guests</label>
+              <select id="visitors" required>
+                <option value="">Select</option>
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6-10">6-10 people</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" rows="3" placeholder="Dietary needs or activity preferences"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Confirm Reservation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBooking');
+    const closeBtn = document.getElementById('closeModal');
+    const bookingForm = document.getElementById('bookingForm');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Reservation confirmed! Your eco-stay package details will be emailed.');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      bookingForm.reset();
+    });
+
+    const visitDateInput = document.getElementById('visitDate');
+    const today = new Date();
+    visitDateInput.min = today.toISOString().split('T')[0];
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        window.open(img.src, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

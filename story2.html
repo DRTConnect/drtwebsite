@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRTConnect - Living with the Dumagat</title>
+  <style>
+    /* Variables */
+    :root {
+      --mist-blue:    #BDD8DD;
+      --earth-gold:   #B6A76E;
+      --olive-moss:   #756B3B;
+      --forest-shade: #3C3E2C;
+      --text:         var(--forest-shade);
+      --muted-text:   #64748b;
+      --light-text:   #f8fafc;
+      --light-muted:  #cbd5e1;
+      --bg:           #fafafa;
+      --card-bg:      #ffffff;
+      --surface:      rgba(255,255,255,0.95);
+      --shadow-sm:    0 2px 5px rgba(0,0,0,0.05);
+      --shadow-md:    0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg:    0 10px 25px rgba(0,0,0,0.1);
+      --gold-gradient: linear-gradient(135deg, var(--earth-gold), var(--olive-moss));
+      --forest-gradient: linear-gradient(to right, var(--olive-moss), var(--forest-shade));
+    }
+
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); line-height:1.6; }
+    a { text-decoration: none; }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: var(--bg);
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: var(--earth-gold);
+    }
+
+    .navbar ul li a:hover:after {
+      width: 100%;
+    }
+
+    .navbar .actions button {
+      margin-left: 0.75rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .login {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #e2e8f0;
+    }
+
+    .navbar .login:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .navbar .signup {
+      background: var(--gold-gradient);
+      color: var(--light-text);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar .signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(117,107,59,0.2);
+    }
+
+    /* Story Header */
+    .story-header {
+      padding: 8rem 0 3rem;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--mist-blue) 100%);
+    }
+
+    /* Full Story Layout */
+    .story-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .story-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-title {
+      margin: 2rem 0 1rem;
+      font-size: 2.5rem;
+      color: var(--forest-shade);
+    }
+
+    .story-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      color: var(--muted-text);
+    }
+
+    .story-meta .author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--muted-text), transparent);
+      margin: 2rem 0;
+      opacity: 0.3;
+    }
+
+    .story-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .story-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-content h2 {
+      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
+      color: var(--forest-shade);
+    }
+
+    .story-content img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-footer {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--light-muted);
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: var(--mist-blue);
+      color: var(--forest-shade);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .share-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .share-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      color: var(--light-text);
+      transition: all 0.3s ease;
+    }
+
+    .share-button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .related-stories {
+      margin: 4rem 0;
+    }
+
+    .related-stories h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .related-stories h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .related-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .related-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .related-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-content {
+      padding: 1.5rem;
+    }
+
+    .related-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .related-meta {
+      font-size: 0.9rem;
+      color: var(--muted-text);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--forest-gradient);
+      color: var(--light-muted);
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gold-gradient);
+    }
+
+    footer .social {
+      margin-bottom: 2rem;
+    }
+
+    footer .social a img {
+      height: 40px;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      filter: brightness(1) invert(1);
+    }
+
+    footer .social a:hover {
+      transform: translateY(-5px);
+    }
+
+    footer .social a:hover img {
+      opacity: 1;
+    }
+
+    footer nav a {
+      margin: 0 1rem;
+      color: var(--light-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer nav a:hover {
+      color: var(--earth-gold);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+      }
+      .story-title {
+        font-size: 2rem;
+      }
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .story-container {
+        padding: 1.5rem;
+      }
+      .story-title {
+        font-size: 1.75rem;
+      }
+      .story-meta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Story Container -->
+  <main>
+    <section class="story-header"></section>
+    
+    <div class="story-container">
+      <div class="story-grid">
+        <img src="images/LOCAL STORIES page/kalawakan5.jpg" alt="Dumagat village life" class="story-image">
+        <img src="images/LOCAL STORIES page/kalawakan2.jpg" alt="Indigenous crafts" class="story-image">
+        <img src="images/LOCAL STORIES page/kalawakan3.jpg" alt="Forest pathway" class="story-image">
+        <img src="images/LOCAL STORIES page/kalawakan4.jpg" alt="Traditional meal" class="story-image">
+      </div>
+      
+      <h1 class="story-title">Kalawakan: The Unexplored Universe of Nature and its People</h1>
+      
+      <div class="story-meta">
+        <div class="author">
+          <span>Ms. Rinzen Gonzales</span>
+        </div>
+        <div class="date">2021</div>
+        <div class="read-time">10 min read</div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <article class="story-content">
+        <p><b>A local journey from survival to sustainability in the heart of DRT, Bulacan</b></p>
+
+        <p>Nestled in the lush folds of the Sierra Madre, <b>Barangay Kalawakan</b> in Doña Remedios Trinidad (DRT), Bulacan, is one of the most isolated yet awe-inspiring areas in the province. Once defined by its reliance on charcoal-making and forest clearing, Kalawakan has since evolved—through grassroots education, community awareness, and cultural pride—into a beacon of ecological transformation.</p>
+
+        <h2>🔥 From Destruction to Awareness</h2>
+        
+        <p>For many years, residents of Kalawakan depended on ulingan or charcoal-making for survival. It was a harsh but necessary livelihood, especially in a place where access to stable income and basic services was limited. But the toll on the forest became undeniable. The once-thriving trees began to disappear. Wildlife grew scarce. Rivers turned shallow.</p>
+        
+        <p>Then came a turning point—led by educators and young people within the community.</p>
+        
+        <p>🗨️ <i>“Sa uling lang kami kumukuha ng ikabubuhay noon. Pero unti-unting nawala ang mga puno at naramdaman namin ang epekto.”</i> — Matandang residente ng Kalawakan</p>
+        
+        <p>Through environmental education initiatives by teachers, local leaders, and youth advocates, the people of Kalawakan began to understand the long-term consequences of their actions. Schools played a key role in changing hearts and minds—by integrating environmental values into daily learning and organizing reforestation drives.</p>
+
+        <h2>🌱 A New Kind of Livelihood</h2>
+        
+        <p>As the forest began to heal, so did the spirit of the people. From simply extracting resources, they became stewards of their land. Today, Kalawakan serves as an eco-tourism gateway to DRT’s unspoiled wonders: waterfalls, forest trails, and mountain peaks that attract hikers, bikers, and nature enthusiasts.</p>
+        
+        <p>Local guides—many from the <b>Dumagat Tribe</b>—now lead eco-walks and cultural immersions, offering visitors a glimpse of indigenous knowledge and environmental harmony. Even children are proud to share what they know.</p>
+        
+        <p>🗨️ <i>“Dati gusto ko lang maglaro. Ngayon gusto ko na ring magtanim ng puno at alagaan ang kalikasan.”</i> — Estudyante mula sa Kalawakan Elementary School</p>
+                
+        <p>🗨️ <i>“Hindi kami mayaman sa pera, pero mayaman kami sa kalikasan. Dito kami humuhugot ng lakas at pag-asa.”</i> — Guro sa Kalawakan</p>
+        
+        <h3>📌 Source:</h3>   <br>
+        <p>DepEd Article - Kalawakan: The Unexplored Universe of Nature and Its People (2021)</p>
+
+
+      </article>
+      
+      <div class="story-footer">
+        <div class="tags">
+          <span class="tag">Indigenous Culture</span>
+          <span class="tag">Ecotourism</span>
+          <span class="tag">Sustainability</span>
+          <span class="tag">Kalawakan</span>
+          <span class="tag">Nature</span>
+        </div>
+        
+        <div class="share-section">
+          <span>Share this story:</span>
+          <a href="#" class="share-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="#" class="share-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+            </svg>
+          </a>
+          <a href="#" class="share-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+</body>
+</html>

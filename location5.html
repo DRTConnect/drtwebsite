@@ -1,0 +1,219 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>DRTConnect - Adarna Falls</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="location-hero">
+    <img src="images/adarna-large.jpg" alt="Adarna Falls">
+    <div class="location-title">
+      <h1>Adarna Falls</h1>
+      <p>Camachin, Doña Remedios Trinidad, Bulacan</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="description">
+        <h2>About The Legendary Falls</h2>
+        <p>Adarna Falls is a seven-tiered waterfall shrouded in local mythology, named after the mythical Ibong Adarna from Filipino folklore. Each cascade features unique rock formations and natural pools said to have therapeutic properties from mineral-rich waters.</p>
+        <p>The main drop stands at 12 meters, creating a misty veil that forms rainbows on sunny days. The waters flow through volcanic rock formations dating back to Mount Pinatubo's eruptions, resulting in natural infinity pools at various elevations.</p>
+        <p>First opened to tourists in 2017, the falls are maintained by local indigenous communities who offer guided tours sharing ancestral stories about the site's spiritual significance.</p>
+      </div>
+
+      <h2 style="margin-bottom: 1rem;">Gallery</h2>
+      <div class="gallery">
+        <img src="images/adarna-1.jpg" alt="Main Cascade">
+        <img src="images/adarna-2.jpg" alt="Rainbow Mist">
+        <img src="images/adarna-3.jpg" alt="Natural Pools">
+        <img src="images/adarna-4.jpg" alt="Jungle Trail">
+        <img src="images/adarna-5.jpg" alt="Rock Formations">
+        <img src="images/adarna-6.jpg" alt="Sunset View">
+      </div>
+
+      <div class="activities">
+        <h2>Things to Do</h2>
+        <ul>
+          <li><strong>Mythical Tour:</strong> Guided storytelling walk through the seven tiers</li>
+          <li><strong>Natural Therapy:</strong> Mineral bath in iron-rich pools</li>
+          <li><strong>Photography:</strong> Capture rainbow mists and unique rock formations</li>
+          <li><strong>Birdwatching:</strong> Spot Philippine endemic species</li>
+          <li><strong>Night Trek:</strong> Moonlit walks with firefly displays</li>
+          <li><strong>Cultural Immersion:</strong> Indigenous craft workshops</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="booking-card">
+        <div class="price">
+          ₱200.00 <span>per person</span>
+        </div>
+        <p>Open 5:30 AM - 4:30 PM daily</p>
+        <button class="book-btn" id="openBooking">Book Adventure</button>
+      </div>
+
+      <div class="info-box">
+        <h3>Essential Information</h3>
+        <div class="info-item">
+          <div class="icon">⏱️</div>
+          <div class="text">
+            <h4>Duration</h4>
+            <p>Full day experience (5-6 hours)</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">👪</div>
+          <div class="text">
+            <h4>Good For</h4>
+            <p>Adventure groups, Cultural enthusiasts</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🚗</div>
+          <div class="text">
+            <h4>Getting There</h4>
+            <p>1-hour hike from Camachin base camp</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <h4>Rating</h4>
+            <p>4.5/5 (76 reviews)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15400.921042898382!2d121.052301375352!3d15.05384514996401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397053b5e2f5f2d%3A0xdd9b9d12a1a0b3a0!2sKabayunan%2C%20Do%C3%B1a%20Remedios%20Trinidad%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1715728234564!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">✕</button>
+      <div class="booking-form">
+        <h2>Book Your Adarna Falls Adventure</h2>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" required>
+            </div>
+            <div class="form-group">
+              <label for="visitors">Number of Visitors</label>
+              <select id="visitors" required>
+                <option value="">Select</option>
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6-10">6-10 people</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" rows="3" placeholder="Any special requirements or questions?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBooking');
+    const closeBtn = document.getElementById('closeModal');
+    const bookingForm = document.getElementById('bookingForm');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Adventure booked! Check your email for confirmation and preparation guidelines.');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      bookingForm.reset();
+    });
+
+    const visitDateInput = document.getElementById('visitDate');
+    const today = new Date();
+    visitDateInput.min = today.toISOString().split('T')[0];
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        window.open(img.src, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

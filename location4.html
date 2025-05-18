@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>DRTConnect - Blue Lagoon</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+   <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="location-hero">
+    <img src="images/bluelagoon-large.jpg" alt="Blue Lagoon">
+    <div class="location-title">
+      <h1>Blue Lagoon</h1>
+      <p>Camachile, Doña Remedios Trinidad, Bulacan</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="description">
+        <h2>About This Natural Pool</h2>
+        <p>Blue Lagoon is a breathtaking turquoise pool nestled in a limestone rock formation, renowned for its crystal-clear mineral waters that maintain a constant 24°C temperature year-round. This geological wonder was formed by centuries of natural spring water filtration through karst formations.</p>
+        <p>The lagoon features varying depths from 1.5m shallow areas perfect for children to 4m deep zones ideal for diving. Surrounded by native ipil-ipil and narra trees, the site offers natural shade and a serene atmosphere enhanced by the gentle sounds of flowing spring water.</p>
+        <p>Discovered in 2012 by local farmers, Blue Lagoon gets its name from the striking azure hue created by sunlight refracting through calcium-rich waters. It has since become a must-visit destination for both local and international nature enthusiasts.</p>
+      </div>
+
+      <h2 style="margin-bottom: 1rem;">Gallery</h2>
+      <div class="gallery">
+        <img src="images/bluelagoon-1.jpg" alt="Aerial View">
+        <img src="images/bluelagoon-2.jpg" alt="Swimming Area">
+        <img src="images/bluelagoon-3.jpg" alt="Rock Formations">
+        <img src="images/bluelagoon-4.jpg" alt="Jungle Surroundings">
+        <img src="images/bluelagoon-5.jpg" alt="Underwater View">
+        <img src="images/bluelagoon-6.jpg" alt="Sunset Reflections">
+      </div>
+
+      <div class="activities">
+        <h2>Things to Do</h2>
+        <ul>
+          <li><strong>Snorkeling:</strong> Explore underwater rock formations with provided gear</li>
+          <li><strong>Cliff Diving:</strong> Safe diving platforms at 3m and 5m heights</li>
+          <li><strong>Natural Jacuzzi:</strong> Relax in natural water massage spots</li>
+          <li><strong>Geology Walks:</strong> Guided tours explaining karst formations</li>
+          <li><strong>Bamboo Rafting:</strong> Traditional raft experience</li>
+          <li><strong>Photography:</strong> Capture stunning blue waters against green backdrop</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="booking-card">
+        <div class="price">
+          ₱100.00 <span>per person</span>
+        </div>
+        <p>Open daily 6:00 AM - 5:00 PM</p>
+        <button class="book-btn" id="openBooking">Book Visit</button>
+      </div>
+
+      <div class="info-box">
+        <h3>Essential Information</h3>
+        <div class="info-item">
+          <div class="icon">⏱️</div>
+          <div class="text">
+            <h4>Duration</h4>
+            <p>Recommended 3-4 hours</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">👪</div>
+          <div class="text">
+            <h4>Good For</h4>
+            <p>Families, Swimmers, Nature lovers</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🚗</div>
+          <div class="text">
+            <h4>Getting There</h4>
+            <p>20-minute trek from Camachile parking</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <h4>Rating</h4>
+            <p>4.6/5 (104 reviews)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15396.926083570143!2d121.08731097535513!3d15.098943146794837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339722f0db254f25%3A0xc3c86a29d8fa4de2!2sCamachile%2C%20Do%C3%B1a%20Remedios%20Trinidad%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1715731124029!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">✕</button>
+      <div class="booking-form">
+        <h2>Book Your Visit to Blue Lagoon</h2>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" required>
+            </div>
+            <div class="form-group">
+              <label for="visitors">Number of Visitors</label>
+              <select id="visitors" required>
+                <option value="">Select</option>
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6-10">6-10 people</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" rows="3" placeholder="Any special requirements or questions?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBooking');
+    const closeBtn = document.getElementById('closeModal');
+    const bookingForm = document.getElementById('bookingForm');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Booking confirmed! You will receive visit details via email.');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      bookingForm.reset();
+    });
+
+    const visitDateInput = document.getElementById('visitDate');
+    const today = new Date();
+    visitDateInput.min = today.toISOString().split('T')[0];
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        window.open(img.src, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

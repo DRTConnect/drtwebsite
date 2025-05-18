@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>DRTConnect - Tibagan Falls</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="location-hero">
+    <img src="images/tibagan-large.jpg" alt="Tibagan Falls">
+    <div class="location-title">
+      <h1>Tibagan Falls</h1>
+      <p>Tibagan, Doña Remedios Trinidad, Bulacan</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="description">
+        <h2>About The Cascading Beauty</h2>
+        <p>Tibagan Falls features a series of seven natural pools cascading down moss-covered rock formations. The main waterfall drops 10 meters into a jade-green basin, surrounded by century-old narra trees and wild orchids. Known for its "stairway to paradise" formation, each tier offers unique swimming experiences.</p>
+        <p>The waters originate from underground springs, maintaining a cool 20°C temperature year-round. Local legends say the falls were named after the Tagalog word "tibag" (to dig), referring to hidden chambers used during the Japanese occupation.</p>
+        <p>First developed for tourism in 2016, Tibagan remains one of DRT's most photogenic natural attractions with minimal commercial development.</p>
+      </div>
+
+      <h2 style="margin-bottom: 1rem;">Gallery</h2>
+      <div class="gallery">
+        <img src="images/tibagan-1.jpg" alt="Main Waterfall">
+        <img src="images/tibagan-2.jpg" alt="Natural Pools">
+        <img src="images/tibagan-3.jpg" alt="Rock Slides">
+        <img src="images/tibagan-4.jpg" alt="Jungle Trail">
+        <img src="images/tibagan-5.jpg" alt="Canopy View">
+        <img src="images/tibagan-6.jpg" alt="Mossy Rocks">
+      </div>
+
+      <div class="activities">
+        <h2>Things to Do</h2>
+        <ul>
+          <li><strong>Pool Hopping:</strong> Swim through interconnected natural pools</li>
+          <li><strong>Natural Water Slides:</strong> Ride smooth rock formations</li>
+          <li><strong>Rainforest Bathing:</strong> Meditate under canopy cover</li>
+          <li><strong>Heritage Walks:</strong> Explore WWII-era hiding caves</li>
+          <li><strong>Macro Photography:</strong> Capture unique flora/fauna</li>
+          <li><strong>Night Swimming:</strong> Moonlit dips (guided tours only)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="booking-card">
+        <div class="price">
+          ₱125.00 <span>per person</span>
+        </div>
+        <p>Open daily 7:00 AM - 5:00 PM</p>
+        <button class="book-btn" id="openBooking">Book This Destination</button>
+      </div>
+
+      <div class="info-box">
+        <h3>Essential Information</h3>
+        <div class="info-item">
+          <div class="icon">⏱️</div>
+          <div class="text">
+            <h4>Duration</h4>
+            <p>Recommended 3-4 hours</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">👪</div>
+          <div class="text">
+            <h4>Good For</h4>
+            <p>Adventure couples, Nature photographers</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🚗</div>
+          <div class="text">
+            <h4>Getting There</h4>
+            <p>40-minute hike from Tibagan village</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <h4>Rating</h4>
+            <p>4.6/5 (89 reviews)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15404.715722974217!2d121.08329537534752!3d15.127506750332843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339705d4b6feb2a5%3A0x6d0a3b321ab13e0f!2sBiak-na-Bato%20National%20Park!5e0!3m2!1sen!2sph!4v1715738807727!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">✕</button>
+      <div class="booking-form">
+        <h2>Book Your Tibagan Adventure</h2>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" required>
+            </div>
+            <div class="form-group">
+              <label for="visitors">Number of Visitors</label>
+              <select id="visitors" required>
+                <option value="">Select</option>
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6-10">6-10 people</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" rows="3" placeholder="Any special requirements or questions?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBooking');
+    const closeBtn = document.getElementById('closeModal');
+    const bookingForm = document.getElementById('bookingForm');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Booking confirmed! Detailed itinerary will be sent to your email.');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      bookingForm.reset();
+    });
+
+    const visitDateInput = document.getElementById('visitDate');
+    const today = new Date();
+    visitDateInput.min = today.toISOString().split('T')[0];
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        window.open(img.src, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRT Tourism Progress | DRTConnect</title>
+  <style>
+    /* Variables */
+    :root {
+      --mist-blue:    #BDD8DD;
+      --earth-gold:   #B6A76E;
+      --olive-moss:   #756B3B;
+      --forest-shade: #3C3E2C;
+      --text:         var(--forest-shade);
+      --muted-text:   #64748b;
+      --light-text:   #f8fafc;
+      --light-muted:  #cbd5e1;
+      --bg:           #fafafa;
+      --card-bg:      #ffffff;
+      --surface:      rgba(255,255,255,0.95);
+      --shadow-sm:    0 2px 5px rgba(0,0,0,0.05);
+      --shadow-md:    0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg:    0 10px 25px rgba(0,0,0,0.1);
+      --gold-gradient: linear-gradient(135deg, var(--earth-gold), var(--olive-moss));
+      --forest-gradient: linear-gradient(to right, var(--olive-moss), var(--forest-shade));
+    }
+
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: var(--bg);
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: var(--earth-gold);
+    }
+
+    .navbar ul li a:hover:after {
+      width: 100%;
+    }
+
+    .navbar .actions button {
+      margin-left: 0.75rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .login {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #e2e8f0;
+    }
+
+    .navbar .login:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .navbar .signup {
+      background: var(--gold-gradient);
+      color: var(--light-text);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar .signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(117,107,59,0.2);
+    }
+
+    /* Header */
+    .page-header {
+      margin-top: 88px;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--mist-blue) 0%, var(--bg) 100%);
+    }
+
+    .page-title {
+      font-size: 2.75rem;
+      color: var(--forest-shade);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .page-title span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-subtitle {
+      font-size: 1.5rem;
+      color: var(--olive-moss);
+      margin-bottom: 2rem;
+    }
+
+    .introduction {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .introduction p {
+      font-size: 1.125rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Timeline Section */
+    .timeline-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+
+    .timeline-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: var(--gold-gradient);
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 30px;
+      position: relative;
+      margin-bottom: 4rem;
+      width: 50%;
+    }
+
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+      justify-content: flex-start;
+      padding-left: 30px;
+      padding-right: 0;
+      margin-left: 50%;
+    }
+
+    .timeline-item-content {
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow-md);
+      padding: 2rem;
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      display: block; /* Change from div to a */
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .timeline-item-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--forest-shade);
+    }
+
+    .timeline-item-content .date {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--earth-gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .timeline-item-content p {
+      margin-bottom: 0;
+      color: var(--text);
+    }
+
+    .timeline-item-content::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--card-bg);
+      transform: rotate(45deg);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-item-content::after {
+      right: -10px;
+      top: 20px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-item-content::after {
+      left: -10px;
+      top: 20px;
+    }
+
+    .timeline-item-dot {
+      background: var(--earth-gold);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      border: 4px solid var(--bg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-item-dot {
+      right: -41px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-item-dot {
+      left: -41px;
+    }
+
+    /* Stats Cards */
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(160deg, var(--bg) 0%, var(--mist-blue) 100%);
+    }
+
+    .stats-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow-md);
+      padding: 2rem;
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stats-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--earth-gold);
+    }
+
+    .stats-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stats-card .label {
+      font-size: 1.125rem;
+      color: var(--muted-text);
+      font-weight: 500;
+    }
+
+    /* Progress Section */
+    .progress-section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .progress-section h2 {
+      font-size: 2.25rem;
+      color: var(--forest-shade);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .progress-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .progress-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .progress-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      width: 350px;
+      transition: transform 0.3s ease;
+    }
+
+    .progress-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .progress-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .progress-card-content {
+      padding: 1.5rem;
+    }
+
+    .progress-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--forest-shade);
+    }
+
+    .progress-card p {
+      color: var(--muted-text);
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--gold-gradient);
+      border-radius: 6px;
+      transition: width 1.5s ease-in-out;
+    }
+
+    .progress-status {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted-text);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Impact Section */
+    .impact-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, var(--bg) 0%, var(--mist-blue) 100%);
+      text-align: center;
+    }
+
+    .impact-section h2 {
+      font-size: 2.25rem;
+      color: var(--forest-shade);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .impact-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .impact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .impact-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      width: 350px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .impact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .impact-card .icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--light-text);
+      font-size: 1.75rem;
+    }
+
+    .impact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--forest-shade);
+    }
+
+    .impact-card p {
+      color: var(--muted-text);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2.25rem;
+      color: var(--forest-shade);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .testimonials h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      width: 350px;
+      text-align: left;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-card::before {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(182, 167, 110, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .testimonial-author .name {
+      font-weight: 600;
+      color: var(--forest-shade);
+    }
+
+    .testimonial-author .role {
+      font-size: 0.875rem;
+      color: var(--muted-text);
+    }
+
+    /* Call to Action */
+    .cta-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: var(--forest-gradient);
+      color: var(--light-text);
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gold-gradient);
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.125rem;
+      color: var(--light-muted);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .cta-primary {
+      background: var(--gold-gradient);
+      color: var(--light-text);
+      box-shadow: 0 6px 16px rgba(117,107,59,0.3);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(117,107,59,0.4);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: var(--light-text);
+      border: 2px solid var(--light-text);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ==========================
+   Footer
+   ========================== */
+footer {
+  background: var(--forest-gradient);
+  color: var(--light-muted);
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold-gradient);
+}
+
+footer .social {
+  margin-bottom: 2rem;
+}
+
+footer .social a img {
+  height: 40px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  filter: brightness(1) invert(1);
+}
+
+footer .social a:hover {
+  transform: translateY(-5px);
+}
+
+footer .social a:hover img {
+  opacity: 1;
+}
+
+footer nav a {
+  margin: 0 1rem;
+  color: var(--light-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: var(--earth-gold);
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================
+   Responsive Tweaks
+   ========================== */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    gap: 1.5rem;
+  }
+  .navbar .actions button {
+    padding: 0.5rem 1rem;
+  }
+  .overlay {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar ul {
+    display: none;
+  }
+  .hero {
+    height: 90vh;
+  }
+  .overlay h1 {
+    font-size: 1.75rem;
+  }
+}
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+      
+      .timeline-container::before {
+        left: 60px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 100px;
+        padding-right: 0;
+      }
+      
+      .timeline-item:nth-child(even) {
+        margin-left: 0;
+      }
+      
+      .timeline-item-dot {
+        left: 49px;
+      }
+      
+      .timeline-item-content::after {
+        left: -10px;
+        top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        gap: 1.5rem;
+      }
+      
+      .navbar .actions button {
+        padding: 0.5rem 1rem;
+      }
+      
+      .page-title {
+        font-size: 2.25rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar ul {
+        display: none;
+      }
+      
+      .page-title {
+        font-size: 1.75rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .timeline-container::before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        padding-left: 70px;
+      }
+      
+      .timeline-item-dot {
+        left: 19px;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Timeline Image Styles */
+.timeline-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item-content:hover .timeline-image {
+  transform: scale(1.05);
+}
+
+/* Adjust existing timeline content spacing */
+.timeline-item-content {
+  padding: 1.5rem; /* Reduced from 2rem */
+}
+
+.timeline-item-content h3 {
+  margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+}
+
+/* Adjust timeline line position for new height */
+.timeline-container::before {
+  top: 50px;
+  height: calc(100% - 100px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .timeline-image-container {
+    height: 160px;
+  }
+  
+  .timeline-container::before {
+    top: 30px;
+    height: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-image-container {
+    height: 120px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Header -->
+  <section class="page-header">
+    <h1 class="page-title"><span>DRT TOURISM</span> Growing Greener, Reaching Higher</h1>
+    <h2 class="page-subtitle">Tracking the sustainable development of Doña Remedios Trinidad</h2>
+  </section>
+
+  <!-- Introduction -->
+  <section class="introduction animated">
+    <p>Take a closer look at how tourism in DRT is flourishing! From new attractions and infrastructure improvements to community-based programs and green initiatives—this is where we celebrate our progress, future plans, and the recognition we've earned along the way. Discover the milestones, certificates, and awards that reflect our commitment to sustainable and inclusive tourism.</p>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-container">
+
+    <div class="timeline-item animated" style="animation-delay: 0.6s;">
+      <a href="https://region3.dost.gov.ph/group-of-tour-guides-in-drt-bulacan-trained-in-souvenir-making/" class="timeline-item-content">
+        <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/TOUR GUIDES IN DRT, TRAINED in SOUVENIR MAKING/ad8ebcf8-c520-4866-b579-0d8c58ebfc86.png" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>From Guides to Artisans: DRT Tour Leaders Learn Souvenir Making</h3>
+        <span class="date">January 6, 2023</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 0.2s;">
+      <a href="https://cltv36.tv/revitalizing-tourism-in-bulacan-steps-towards-success/" class="timeline-item-content">
+        <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/DRT served as the host municipality for ATOB’s Monthly Meeting/480473068_929342136038933_8659866008246987792_n.jpg" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>DRT in the Spotlight at ATOB, Bulacan Tourism Assembly</h3>
+        <span class="date">March 6, 2025</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 0.4s;">
+      <a href="https://cltv36.tv/bulacan-excellence-in-tourism-awards-2025-celebrating-innovation-and-community-engagement/" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/DRT, Rank 5 in Top Destinations in Bulacan/486525698_968208798818648_6534985318719505632_n.jpg" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>DRT Ranks 5th in 2025 Bulacan Tourism Awards</h3>
+        <span class="date">March 13, 2025</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 0.8s;">
+      <a href="#" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/Educational Signage and Trails.webp" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>Soon to Trek: DRT's Guided Eco-Trails with Learning Stops</h3>
+        <span class="date">N/A</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 1s;">
+      <a href="#" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/Green Facilities.jpeg" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>Soon to Serve: DRT's Rest and Respect Spaces</h3>
+        <span class="date">N/A</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 1.2s;">
+      <a href="#" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/Clean Energy.png" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>Coming Soon: Solar-Powered Solutions for DRT Destinations</h3>
+        <span class="date">N/A</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 1.2s;">
+      <a href="#" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/Tatak DRT.png" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>Empowering Hands: Tatak DRT Launching Soon</h3>
+        <span class="date">N/A</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+
+    <div class="timeline-item animated" style="animation-delay: 1.2s;">
+      <a href="#" class="timeline-item-content">
+         <div class="timeline-image-container">
+          <img src="images/TOURISM PROGRESS page/Green Cycle.png" alt="Timeline Event" class="timeline-image">
+        </div>
+        <h3>Eco Badges, Big Impact: GreenCycle, Future of DRT Local Tourism</h3>
+        <span class="date">N/A</span>
+      </a>
+      <span class="timeline-item-dot"></span>
+    </div>
+  </section>
+
+  <!-- Stats Cards -->
+  <section class="stats-container">
+    <div class="stats-card animated" style="animation-delay: 0.3s;">
+      <div class="icon">🌳</div>
+      <div class="number">5,000+</div>
+      <div class="label">Trees Planted</div>
+    </div>
+
+    <div class="stats-card animated" style="animation-delay: 0.4s;">
+      <div class="icon">👨‍👩‍👧‍👦</div>
+      <div class="number">250+</div>
+      <div class="label">Local Jobs Created</div>
+    </div>
+
+    <div class="stats-card animated" style="animation-delay: 0.5s;">
+      <div class="icon">🏞️</div>
+      <div class="number">35</div>
+      <div class="label">Protected Destinations</div>
+    </div>
+
+    <div class="stats-card animated" style="animation-delay: 0.6s;">
+      <div class="icon">🧳</div>
+      <div class="number">15,000+</div>
+      <div class="label">Annual Visitors</div>
+    </div>
+  </section>
+
+  <!-- Progress Section -->
+  <section class="progress-section">
+    <h2>Current Initiatives</h2>
+    
+    <div class="progress-cards">
+
+        <div class="progress-card animated" style="animation-delay: 0.5s;">
+        <a href="https://region3.dost.gov.ph/group-of-tour-guides-in-drt-bulacan-trained-in-souvenir-making/">
+            <img src="images/TOURISM PROGRESS page/TOUR GUIDES IN DRT, TRAINED in SOUVENIR MAKING/d17b3628-a72e-4a9c-890c-5408beb0e7d5.png" alt="Waste Management System" />
+            <div class="progress-card-content">
+            <h3>From Guides to Artisans: DRT Tour Leaders Learn Souvenir Making</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            <div class="progress-status">
+                <span>Progress: 100%</span>
+                <span>January 6, 2023</span>
+            </div>
+            </div>
+        </a>
+      </div>
+
+      <div class="progress-card animated" style="animation-delay: 0.3s;">
+        <a href="https://cltv36.tv/revitalizing-tourism-in-bulacan-steps-towards-success/">
+            <img src="images/TOURISM PROGRESS page/DRT served as the host municipality for ATOB’s Monthly Meeting/481207666_929342122705601_4154305253640583054_n.jpg" alt="Trail Development Project" />
+            <div class="progress-card-content">
+            <h3>DRT in the Spotlight at ATOB, Bulacan Tourism Assembly</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            <div class="progress-status">
+                <span>Progress: 100%</span>
+                <span>March 6, 2025</span>
+            </div>
+            </div>
+        </a>
+      </div>
+
+      <div class="progress-card animated" style="animation-delay: 0.4s;">
+        <a href="https://cltv36.tv/bulacan-excellence-in-tourism-awards-2025-celebrating-innovation-and-community-engagement/">
+            <img src="images/TOURISM PROGRESS page/DRT, Rank 5 in Top Destinations in Bulacan/486406471_968341378805390_5109174228150866463_n.jpg" alt="Local Guides Program" />
+            <div class="progress-card-content">
+            <h3>DRT Ranks 5th in 2025 Bulacan Tourism Awards</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            <div class="progress-status">
+                <span>Progress: 100%</span>
+                <span>March 13, 2025</span>
+            </div>
+            </div>
+        </a>
+      </div>
+   
+    </div>
+  </section>
+      <!-- Footer -->
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  </body>
+</html>

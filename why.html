@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Why DRT? - DRTConnect</title>
+  <style>
+    /* Modified Hero Section Styles */
+      .hero-about {
+        height: 60vh;
+        background: linear-gradient(135deg, #b6d8f8 0%, #abc8e6 100%);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 70px;
+        overflow: hidden;
+      }
+      .hero-about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9); /* Light white overlay */
+      }
+      .hero-about-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--forest-shade); /* Dark text color */
+        padding: 0 20px;
+        max-width: 800px;
+      }
+      .hero-about h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: float 3s ease-in-out infinite;
+      }
+      .hero-about p {
+        font-size: 1.3rem;
+        margin: 0 auto;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        line-height: 1.6;
+      }
+
+      @keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Optional: Add a subtle border and shadow to the content container */
+.hero-about-content {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+    
+    /* Why Visit Section */
+    .why-visit {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #fafafa 0%, var(--mist-blue) 100%);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--forest-shade);
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+    
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .testimonial-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      position: relative;
+    }
+    
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -1.5rem;
+      left: -0.5rem;
+      opacity: 0.1;
+      font-family: Georgia, serif;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+    }
+    
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+      border: 2px solid var(--earth-gold);
+    }
+    
+    .author-details h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    .author-details small {
+      color: var(--muted-text);
+      font-size: 0.85rem;
+    }
+    
+    /* Social Media Section */
+    .social-connect {
+      padding: 5rem 2rem;
+      background-color: var(--forest-shade);
+      color: var(--light-text);
+      text-align: center;
+    }
+    
+    .social-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .social-title {
+      color: var(--light-text);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .social-title::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+    
+    .facebook-promo {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .facebook-frame {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    
+    .fb-header {
+      background: #4267B2;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .fb-logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    .fb-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: #f0f2f5;
+      border-bottom: 1px solid #dddfe2;
+    }
+    
+    .fb-btn {
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    
+    .fb-like {
+      background: #1877F2;
+      color: white;
+    }
+    
+    .fb-like:hover {
+      background: #166FE5;
+    }
+    
+    .fb-visit {
+      background: #E4E6EB;
+      color: #050505;
+    }
+    
+    .fb-visit:hover {
+      background: #d8dadf;
+    }
+    
+    .fb-content {
+      padding: 1.5rem;
+      background: white;
+      text-align: left;
+      color: #1c1e21;
+    }
+    
+    .fb-post {
+      border: 1px solid #dddfe2;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    
+    .fb-post-header {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+    }
+    
+    .fb-post-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .fb-post-user {
+      font-weight: 600;
+      color: #050505;
+    }
+    
+    .fb-post-time {
+      font-size: 0.8rem;
+      color: #65676B;
+    }
+    
+    .fb-post-body {
+      padding: 0 12px 12px;
+    }
+    
+    .fb-post-image {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+    }
+    
+    .fb-post-stats {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-top: 1px solid #dddfe2;
+      color: #65676B;
+      font-size: 0.9rem;
+    }
+    
+    /* Feedback Section */
+    .feedback-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--mist-blue) 0%, #fafafa 100%);
+    }
+    
+    .feedback-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem;
+    }
+    
+    .feedback-form {
+      display: grid;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--forest-shade);
+    }
+    
+    .form-control {
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--earth-gold);
+      box-shadow: 0 0 0 3px rgba(182, 167, 110, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .rating-stars {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .star {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #ddd;
+      transition: color 0.2s ease;
+    }
+    
+    .star:hover, .star.active {
+      color: var(--earth-gold);
+    }
+    
+    .submit-btn {
+      background: var(--gold-gradient);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      justify-self: start;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 4rem auto;
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+    
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--mist-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .feature-icon svg {
+      width: 40px;
+      height: 40px;
+      color: var(--forest-shade);
+    }
+    
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--forest-shade);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-about h1 {
+        font-size: 2.5rem;
+      }
+      
+      .feedback-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (same as index.html) -->
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-about">
+    <div class="hero-about-content">
+      <h1>Why DRT?</h1>
+      <p>Discover why Doña Remedios Trinidad is becoming Bulacan's hidden gem for eco-tourism and adventure</p>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="why-visit">
+    <div class="section-title">
+      <h2>Discover DRT's Unique Charm</h2>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+        </div>
+        <h3>Unspoiled Natural Beauty</h3>
+        <p>Experience pristine waterfalls, lush mountains, and diverse ecosystems still untouched by mass tourism</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3>Adventure Paradise</h3>
+        <p>From hiking and camping to waterfall chasing, DRT offers authentic adventure experiences for all levels</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <h3>Authentic Local Culture</h3>
+        <p>Connect with indigenous communities and experience the warmth of Filipino hospitality in a rural setting</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3>Escape from City Life</h3>
+        <p>Just a few hours from Manila, DRT offers the perfect weekend retreat to reconnect with nature</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="why-visit">
+    <div class="section-title">
+      <h2>Why DRT is a Must-Visit</h2>
+    </div>
+    
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <img src="images/Verdivia Falls/2.jpg" alt="Verdivia Falls" class="testimonial-img" />
+        <div class="testimonial-content">
+          <p class="testimonial-quote">The waterfalls in DRT are simply breathtaking! Verdivia Falls was the highlight of our trip - crystal clear water and almost no other tourists. It felt like discovering a secret paradise.</p>
+          <div class="testimonial-author">
+            <img src="images/others/pfp1.jpg" alt="Maria Santos" class="author-avatar" />
+            <div class="author-details">
+              <h4>Maria Santos</h4>
+              <small>Adventure Travel Blogger</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <img src="images/Other Location/(23) Batong Palaka.jpg" alt="Mountain view" class="testimonial-img" />
+        <div class="testimonial-content">
+          <p class="testimonial-quote">As a photographer, DRT is a dream destination. The landscape changes with every season, and the locals are incredibly welcoming. I've visited 3 times already and keep discovering new spots!</p>
+          <div class="testimonial-author">
+            <img src="images/others/pfp1.jfif" alt="Juan Reyes" class="author-avatar" />
+            <div class="author-details">
+              <h4>Juan Reyes</h4>
+              <small>Outdoor Photographer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <img src="images/Other Location/(28) Dumagat.jpg" alt="Local community" class="testimonial-img" />
+        <div class="testimonial-content">
+          <p class="testimonial-quote">Our family spent a weekend in DRT and it was the perfect nature retreat. The kids loved playing in the waterfalls while we enjoyed the serenity. The local guides made us feel safe throughout our adventure.</p>
+          <div class="testimonial-author">
+            <img src="images/others/pfp3.jfif"Ana Gomez" class="author-avatar" />
+            <div class="author-details">
+              <h4>Ana Gomez</h4>
+              <small>Family Travel Enthusiast</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Social Media Section -->
+  <section class="social-connect">
+    <div class="social-content">
+      <h2 class="social-title">Connect With Our Community</h2>
+      
+      <div class="facebook-promo">
+        <div class="facebook-frame">
+          <div class="fb-header">
+            <img src="icons/fb.png" alt="Facebook Logo" class="fb-logo" />
+            <h3>DRTConnect Official Page</h3>
+          </div>
+          
+          <div class="fb-actions">
+            <button class="fb-btn fb-like">Like Page</button>
+            <a href="https://facebook.com" target="_blank" class="fb-btn fb-visit">Visit Page</a>
+          </div>
+          
+          <div class="fb-content">
+            <div class="fb-post">
+              <div class="fb-post-header">
+                <img src="images/ABOUT page/DRT CONNECT logo.jpg" alt="DRTConnect Avatar" class="fb-post-avatar" />
+                <div>
+                  <div class="fb-post-user">DRTConnect</div>
+                  <div class="fb-post-time">Yesterday at 10:30 AM</div>
+                </div>
+              </div>
+              
+              <div class="fb-post-body">
+                <p>Weekend adventures await at Eva Falls! Perfect water level for swimming this month. Who's planning a visit? 💦 #DRTExplorer #NatureLover</p>
+                <img src="images/Other Location/(6) EVA FALLS.jpg" alt="Eva Falls" class="fb-post-image" />
+              </div>
+              
+              <div class="fb-post-stats">
+                <div>243 Likes</div>
+                <div>57 Comments</div>
+                <div>32 Shares</div>
+              </div>
+            </div>
+            
+            <div class="fb-post">
+              <div class="fb-post-header">
+                <img src="images/ABOUT page/DRT CONNECT logo.jpg" alt="DRTConnect Avatar" class="fb-post-avatar" />
+                <div>
+                  <div class="fb-post-user">DRTConnect</div>
+                  <div class="fb-post-time">May 15 at 3:45 PM</div>
+                </div>
+              </div>
+              
+              <div class="fb-post-body">
+                <p>Congratulations to our May Photo Contest winner! This stunning shot of sunrise at Mt. Manalmon captures the magic of DRT perfectly. 🌄 Submit your photos for next month's contest!</p>
+                <img src="images/Other Location/(10) MT.MANALMON.jpg"Mt. Manalmon Sunrise" class="fb-post-image" />
+              </div>
+              
+              <div class="fb-post-stats">
+                <div>358 Likes</div>
+                <div>42 Comments</div>
+                <div>76 Shares</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Feedback Section -->
+  <section class="feedback-section">
+    <div class="section-title">
+      <h2>Share Your DRT Experience</h2>
+    </div>
+    
+    <div class="feedback-container">
+      <form class="feedback-form">
+        <div class="form-group">
+          <label for="visitor-name">Your Name</label>
+          <input type="text" id="visitor-name" class="form-control" placeholder="John Doe" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="visitor-email">Email Address</label>
+          <input type="email" id="visitor-email" class="form-control" placeholder="johndoe@example.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="visited-location">Location(s) Visited</label>
+          <input type="text" id="visited-location" class="form-control" placeholder="e.g., Verdivia Falls, Mt. Manalmon">
+        </div>
+        
+        <div class="form-group">
+          <label>Rate Your Experience</label>
+          <div class="rating-stars">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="feedback-message">Your Feedback</label>
+          <textarea id="feedback-message" class="form-control" placeholder="Tell us about your experience in DRT..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="upload-photos">Upload Photos (optional)</label>
+          <input type="file" id="upload-photos" class="form-control" multiple accept="image/*">
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer (same as index.html) -->
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram" /></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Star rating functionality
+    const stars = document.querySelectorAll('.star');
+    let rating = 0;
+    
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        rating = parseInt(star.getAttribute('data-value'));
+        updateStars();
+      });
+    });
+    
+    function updateStars() {
+      stars.forEach(star => {
+        const value = parseInt(star.getAttribute('data-value'));
+        if (value <= rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+    
+    // Form submission handling (just for demonstration)
+    const feedbackForm = document.querySelector('.feedback-form');
+    
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('visitor-name').value;
+      const email = document.getElementById('visitor-email').value;
+      const location = document.getElementById('visited-location').value;
+      const message = document.getElementById('feedback-message').value;
+      
+      // In a real application, you would send this data to a server
+      alert(`Thank you for your feedback, ${name}! We've received your ${rating}-star review about ${location}.`);
+      
+      // Reset form
+      feedbackForm.reset();
+      rating = 0;
+      updateStars();
+    });
+    
+    // Facebook button interactions
+    const fbLikeBtn = document.querySelector('.fb-like');
+    
+    fbLikeBtn.addEventListener('click', () => {
+      fbLikeBtn.textContent = 'Liked ✓';
+      fbLikeBtn.style.background = '#E4E6EB';
+      fbLikeBtn.style.color = '#1877F2';
+      
+      setTimeout(() => {
+        alert('Thanks for liking the DRTConnect Facebook page!');
+      }, 500);
+    });
+  </script>
+</body>
+</html>

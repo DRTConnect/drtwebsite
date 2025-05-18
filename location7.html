@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>DRTConnect - Puning Hot Spring</title>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">DRTConnect</div>
+    <ul>
+      <li><a href="index.html">Explore</a></li>
+      <li><a href="why.html">Why DRT?</a></li>
+      <li><a href="story.html">Local Stories</a></li>
+      <li><a href="progress.html">Tourism Progress</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="actions">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  <section class="location-hero">
+    <img src="images/puning-large.jpg" alt="Puning Hot Spring">
+    <div class="location-title">
+      <h1>Puning Hot Spring</h1>
+      <p>Puning, Doña Remedios Trinidad, Bulacan</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="description">
+        <h2>About The Thermal Springs</h2>
+        <p>Nestled at the foothills of Mount Pinatubo, Puning Hot Spring offers a unique blend of therapeutic geothermal baths and stunning volcanic landscapes. These natural sulfur springs maintain a constant 40-45°C temperature, rich in minerals like sulfur and magnesium known for their healing properties.</p>
+        <p>The site features 12 open-air thermal pools with varying temperatures, surrounded by dramatic ash-colored rock formations from the 1991 eruption. A special highlight is the natural sand steam therapy area where guests are buried in volcanically heated sand.</p>
+        <p>Discovered in 2005 by local mountaineers, Puning has become a premier wellness destination combining adventure with rejuvenation.</p>
+      </div>
+
+      <h2 style="margin-bottom: 1rem;">Gallery</h2>
+      <div class="gallery">
+        <img src="images/puning-1.jpg" alt="Thermal Pools">
+        <img src="images/puning-2.jpg" alt="Sand Therapy">
+        <img src="images/puning-3.jpg" alt="Volcanic Landscape">
+        <img src="images/puning-4.jpg" alt="Mud Bath">
+        <img src="images/puning-5.jpg" alt="Mountain View">
+        <img src="images/puning-6.jpg" alt="Evening Lights">
+      </div>
+
+      <div class="activities">
+        <h2>Things to Do</h2>
+        <ul>
+          <li><strong>Thermal Bathing:</strong> Soak in mineral-rich hot springs</li>
+          <li><strong>Volcanic Sand Therapy:</strong> Detoxifying full-body treatment</li>
+          <li><strong>Mud Mask Experience:</strong> Natural volcanic clay facials</li>
+          <li><strong>4x4 Adventure:</strong> Tour of Pinatubo's alien landscape</li>
+          <li><strong>Yoga Sessions:</strong> Morning practice with mountain views</li>
+          <li><strong>Photography:</strong> Capture surreal volcanic scenery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="booking-card">
+        <div class="price">
+          ₱250.00 <span>per person</span>
+        </div>
+        <p>Open daily 8:00 AM - 8:00 PM</p>
+        <button class="book-btn" id="openBooking">Book Therapy Session</button>
+      </div>
+
+      <div class="info-box">
+        <h3>Essential Information</h3>
+        <div class="info-item">
+          <div class="icon">⏱️</div>
+          <div class="text">
+            <h4>Duration</h4>
+            <p>Recommended 3-5 hours</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">👪</div>
+          <div class="text">
+            <h4>Good For</h4>
+            <p>Couples, Wellness seekers, Adventure groups</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🚗</div>
+          <div class="text">
+            <h4>Getting There</h4>
+            <p>1-hour 4x4 ride from base camp</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⭐</div>
+          <div class="text">
+            <h4>Rating</h4>
+            <p>4.8/5 (167 reviews)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15400.921042898382!2d121.052301375352!3d15.05384514996401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397053b5e2f5f2d%3A0xdd9b9d12a1a0b3a0!2sKabayunan%2C%20Do%C3%B1a%20Remedios%20Trinidad%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1715728234564!5m2!1sen!2sph" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">✕</button>
+      <div class="booking-form">
+        <h2>Book Your Thermal Experience</h2>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">Visit Date</label>
+              <input type="date" id="visitDate" required>
+            </div>
+            <div class="form-group">
+              <label for="visitors">Number of Guests</label>
+              <select id="visitors" required>
+                <option value="">Select</option>
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6-10">6-10 people</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" rows="3" placeholder="Any health considerations?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>© 2025 DRTConnect.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBooking');
+    const closeBtn = document.getElementById('closeModal');
+    const bookingForm = document.getElementById('bookingForm');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Booking confirmed! Your thermal experience details will be emailed.');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      bookingForm.reset();
+    });
+
+    const visitDateInput = document.getElementById('visitDate');
+    const today = new Date();
+    visitDateInput.min = today.toISOString().split('T')[0];
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        window.open(img.src, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
